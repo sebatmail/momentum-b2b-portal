@@ -1,5 +1,9 @@
 window.onload = function () {
     obtenerPaises();
+    const formulario = document.getElementById('registroUsuario');
+    if (formulario) {
+        formulario.addEventListener('reset', limpiarFormulario);
+    }
 };
 
 function validarFormulario() {
@@ -126,10 +130,14 @@ function validarFechaNacimiento(campo) {
     }
     const fechaSeleccionada = new Date(campo.value);
     const hoy = new Date();
-    const anio = fechaSeleccionada.getFullYear();
-    const anioActual = hoy.getFullYear();
     
-    if (anio < anioActual - 100 || anio > anioActual) {
+    let edad = hoy.getFullYear() - fechaSeleccionada.getFullYear();
+    const mes = hoy.getMonth() - fechaSeleccionada.getMonth();
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaSeleccionada.getDate())) {
+        edad--;
+    }
+    
+    if (edad < 18 || edad > 100) {
         campo.classList.remove('is-valid');
         campo.classList.add('is-invalid', 'alerta');
         return false;
@@ -237,4 +245,10 @@ async function obtenerPaises() {
     }
 };
 
-
+function limpiarFormulario() {
+    // Buscar todos los elementos del formulario que tengan las clases de validación
+    const inputs = document.querySelectorAll('.form-control, .form-select');
+    inputs.forEach(input => {
+        input.classList.remove('is-valid', 'is-invalid', 'alerta');
+    });
+}
