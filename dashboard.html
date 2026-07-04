@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/brite.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="stylesheet" href="./css/momentum.css">
+    <link rel="shortcut icon" href="./assets/images/momentum_logo.jpg" type="image/png">
+    <link href="https://cdn.datatables.net/v/dt/dt-2.3.8/datatables.min.css" rel="stylesheet"
+        integrity="sha384-1BvCnyKidMPIGQGjvMn+w+90hHBhYJtF+R7os4NX2Abe7tSxWQadHRTSH5qb559A" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-2.3.8/datatables.min.js"
+        integrity="sha384-kjkli48Tmhwhaghq0IIRm8gFmMdnihfu1ywAOyyGWYMsoZZi/6AX2fWzpsqahoFw"
+        crossorigin="anonymous"></script>
+    <script src="./scripts/dashboard.js"></script>
+
+    <title>Mi Dashboard | Partners</title>
+</head>
+
+<body>
+    <!-- Background galáctico -->
+    
+    
+
+    <nav class="navbar navbar-expand-lg momentum-nav" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand momentum-brand" href="./index.html"><img src="./assets/images/momentum_logo.jpg" alt="Logo"><span class="brand-text">MOMENTUM<br>SPACE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a href="./index.html" class="nav-link">Partners (Directorio)</a></li>
+                    <li class="nav-item"><a href="./formulario.html" class="nav-link">Registro Partner</a></li>
+                    <li class="nav-item"><a href="./proyectos.html" class="nav-link">Referidos</a></li>
+                    <li class="nav-item"><a href="./dashboard.html" class="nav-link active">Mi Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+        
+        <!-- Simulación de Login -->
+        <div class="row justify-content-center mb-4" id="loginSection">
+            <div class="col-md-6 glass-container p-4 rounded-4 shadow-lg text-center">
+                <h3 class="momentum-title text-light mb-3">Acceso al Panel de Partner</h3>
+                <p class="text-secondary">Selecciona tu perfil de Partner para visualizar tus métricas de afiliado.</p>
+                <select id="selectPartnerLogin" class="form-select bg-dark text-light border-secondary mb-3">
+                    <option value="" selected disabled>Cargando perfiles...</option>
+                </select>
+                <button class="btn btn-momentum px-4 fw-bold w-100" onclick="iniciarDashboard()">Ver Mi Dashboard</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Content (Oculto por defecto) -->
+        <div id="dashboardContent" class="d-none">
+            
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="momentum-title m-0">Bienvenido(a), <span id="partnerNameDisplay" class="text-info">Partner</span></h2>
+                <button class="btn btn-outline-light btn-sm" onclick="cerrarDashboard()">Cerrar Sesión</button>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="glass-container p-4 rounded-4 text-center border-start border-4 border-info">
+                        <h5 class="text-secondary">Total de Clientes Referidos</h5>
+                        <h2 class="text-light m-0 fw-bold" id="kpiTotalReferidos">0</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="glass-container p-4 rounded-4 text-center border-start border-4 border-success">
+                        <h5 class="text-secondary">Volumen de Ventas Generado</h5>
+                        <h2 class="text-success m-0 fw-bold" id="kpiTotalPresupuesto">$0</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de proyectos del partner -->
+            <div class="glass-container p-5 rounded-4 shadow-lg">
+                <h4 class="text-light mb-4">Detalle de mis Operaciones</h4>
+                <div class="table-responsive">
+                    <table id="tablaDashboard" class="table table-dark table-striped table-hover momentum-table display w-100">
+                        <thead>
+                            <tr>
+                                <th>Empresa Referida</th>
+                                <th>Servicio (Categoría)</th>
+                                <th>Estado</th>
+                                <th>Avance (%)</th>
+                                <th>Monto Contrato</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+/* CSS Pro Estético MomentumSpace (Galáctico) */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700;900&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Geist', sans-serif;
+    color: #e0e6ed;
+    background-color: #050505;
+    background-image: 
+      linear-gradient(#1A1A1A 1px, transparent 1px),
+      linear-gradient(90deg, #1A1A1A 1px, transparent 1px);
+    background-size: 64px 64px;
+    background-position: center;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.momentum-nav {
+    background: rgba(5, 5, 5, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1A1A1A;
+    padding: 1rem 2rem;
+}
+
+.momentum-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.momentum-brand img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+.brand-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    line-height: 1.1;
+    color: #E2E2E2 !important;
+    letter-spacing: 0px;
+    text-shadow: none;
+}
+
+.momentum-nav .nav-link {
+    font-family: 'Geist', sans-serif;
+    color: #9D8BA0 !important;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+    margin: 0 15px;
+}
+
+.momentum-nav .nav-link:hover, .momentum-nav .nav-link.active {
+    color: #E2E2E2 !important;
+    border-bottom-color: #BC13FE;
+    text-shadow: 0 0 10px rgba(188, 19, 254, 0.4);
+}
+
+/* Glassmorphism Containers */
+.glass-container {
+    background: rgba(18, 20, 31, 0.6) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Typography */
+.momentum-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: #E2E2E2;
+}
+
+.momentum-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #9D8BA0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.momentum-hr {
+    border-top: 1px solid #1A1A1A;
+    box-shadow: none;
+}
+
+/* Botones */
+.btn-momentum {
+    background: #BC13FE;
+    color: white;
+    border: 1px solid #BC13FE;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.4);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-momentum:hover {
+    background: transparent;
+    border: 1px solid #BC13FE;
+    box-shadow: 0 0 25px rgba(188, 19, 254, 0.6);
+    color: #BC13FE;
+    transform: translateY(-2px);
+}
+
+/* DataTables and Tables */
+.momentum-table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    background: transparent !important;
+}
+
+.momentum-table thead th {
+    background-color: #1A1A1A;
+    color: #9D8BA0;
+    border: none;
+    font-family: 'Geist', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px;
+    font-size: 12px;
+}
+
+.momentum-table tbody tr {
+    background: rgba(30, 33, 48, 0.8) !important;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.momentum-table tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 15px rgba(188, 19, 254, 0.2);
+    background: rgba(40, 45, 65, 0.9) !important;
+}
+
+.momentum-table td {
+    border: none;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: #c5c6c7 !important;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,240,255,0.3);
+    color: white;
+    border-radius: 4px;
+}
+
+/* Inputs form */
+.form-control:focus, .form-select:focus {
+    background-color: rgba(0,0,0,0.5) !important;
+    border-color: #BC13FE;
+    box-shadow: 0 0 0 0.25rem rgba(188, 19, 254, 0.25);
+    color: white;
+}
