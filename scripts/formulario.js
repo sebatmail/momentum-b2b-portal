@@ -102,7 +102,7 @@ function validarFormulario() {
                 console.log('Datos correctamente almacenados: ', info);
                 if (respuesta.ok) {
                     formulario.reset();
-                    window.location.href = './inicio.html';
+                    window.location.href = './index.html';
                 }
             }
             catch (error) {
