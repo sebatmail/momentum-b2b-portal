@@ -1,3 +1,6 @@
+const dns = require('dns');
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
 const mongoose = require('mongoose');
 
 const uri = "mongodb+srv://usuario_prueba:Prueba1234@cluster0.73dgb0w.mongodb.net/AP_N3_C1?appName=Cluster0";
