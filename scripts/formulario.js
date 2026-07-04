@@ -110,6 +110,7 @@ function validarFormulario() {
 
 function validarCampo(campo) {
     if (campo.value == '') {
+        campo.classList.remove('is-valid');
         campo.classList.add('is-invalid', 'alerta');
         return false
     } else {
@@ -123,6 +124,7 @@ function validarEmail(campo) {
     if (validarCampo(campo)) {
         const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
         if (!regexEmail.test(campo.value)) {
+            campo.classList.remove('is-valid');
             campo.classList.add('is-invalid', 'alerta');
             return false
         } else {
@@ -141,6 +143,7 @@ function validarContrasena(campo) {
             campo.classList.add('is-valid');
             return true
         } else {
+            campo.classList.remove('is-valid');
             campo.classList.add('is-invalid', 'alerta');
             return false
         }
@@ -153,7 +156,11 @@ function validarRepetirContrasena(campo, campo2) {
             campo.classList.remove('is-invalid', 'alerta');
             campo.classList.add('is-valid');
             return true
-        } else { campo.classList.add('is-invalid', 'alerta'); return false }
+        } else { 
+            campo.classList.remove('is-valid');
+            campo.classList.add('is-invalid', 'alerta'); 
+            return false 
+        }
     }
 }
 
@@ -186,6 +193,7 @@ function validarRut(campo) {
             campo.classList.add('is-valid');
             return true
         } else {
+            campo.classList.remove('is-valid');
             campo.classList.add('is-invalid', 'alerta');
             return false
         }
