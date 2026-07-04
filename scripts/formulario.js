@@ -19,6 +19,7 @@ function validarFormulario() {
     let comuna = document.getElementById('inputComuna');
     let calle = document.getElementById('inputCalle');
     let numero = document.getElementById('inputNumero');
+    let departamento = document.getElementById('inputDepartamento');
     let formularioValido = true;
 
     if (!validarCampo(nombre)) {
@@ -68,6 +69,8 @@ function validarFormulario() {
     if (!validarCampo(numero)) {
         formularioValido = false
     }
+
+    validarOpcional(departamento);
 
     if (formularioValido) {
         alert('Datos ingresados correctamente, enviado al servidor...');
@@ -201,9 +204,13 @@ function validarRut(campo) {
         dv = valor.slice(-1).toUpperCase();
         campo.value = cuerpo + '-' + dv
 
-        if (cuerpo.length < 7) { return false; }
-        suma = 0;
-        multiplo = 2;
+        if (cuerpo.length < 7) { 
+            campo.classList.remove('is-valid');
+            campo.classList.add('is-invalid', 'alerta');
+            return false; 
+        }
+        var suma = 0;
+        var multiplo = 2;
 
         for (i = 1; i <= cuerpo.length; i++) {
             index = multiplo * valor.charAt(cuerpo.length - i);
@@ -226,7 +233,7 @@ function validarRut(campo) {
             return false
         }
     }
-};
+}
 
 async function obtenerPaises() {
     try {
@@ -251,4 +258,15 @@ function limpiarFormulario() {
     inputs.forEach(input => {
         input.classList.remove('is-valid', 'is-invalid', 'alerta');
     });
+}
+
+function validarOpcional(campo) {
+    if (campo.value == '') {
+        campo.classList.remove('is-valid', 'is-invalid', 'alerta');
+        return true;
+    } else {
+        campo.classList.remove('is-invalid', 'alerta');
+        campo.classList.add('is-valid');
+        return true;
+    }
 }
