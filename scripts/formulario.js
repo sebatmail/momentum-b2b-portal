@@ -41,7 +41,7 @@ function validarFormulario() {
         formularioValido = false
     }
 
-    if (!validarCampo(fechaNacimiento)) {
+    if (!validarFechaNacimiento(fechaNacimiento)) {
         formularioValido = false
     }
 
@@ -117,6 +117,26 @@ function validarCampo(campo) {
         campo.classList.remove('is-invalid', 'alerta');
         campo.classList.add('is-valid');
         return true
+    }
+}
+
+function validarFechaNacimiento(campo) {
+    if (!validarCampo(campo)) {
+        return false;
+    }
+    const fechaSeleccionada = new Date(campo.value);
+    const hoy = new Date();
+    const anio = fechaSeleccionada.getFullYear();
+    const anioActual = hoy.getFullYear();
+    
+    if (anio < anioActual - 100 || anio > anioActual) {
+        campo.classList.remove('is-valid');
+        campo.classList.add('is-invalid', 'alerta');
+        return false;
+    } else {
+        campo.classList.remove('is-invalid', 'alerta');
+        campo.classList.add('is-valid');
+        return true;
     }
 }
 
