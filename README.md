@@ -12,18 +12,18 @@
 
 ---
 
-## 🏗️ Módulos y Arquitectura del Sistema
+## 🛠️ Desglose del Sistema Desarrollado
 
 El portal cuenta con 4 módulos principales diseñados bajo un estilo "cyber-galáctico" responsivo:
 
-1. **Partners (Directorio) [`index.html`]:**
-   * Panel de administración principal que consulta y lista a todos los Partners registrados en el sistema, mostrando sus datos ordenados mediante tablas interactivas de **DataTables 2.0+**.
-2. **Registro Partner [`formulario.html`]:**
-   * Formulario de incorporación con validación avanzada en tiempo real: verificación algorítmica de RUT chileno con dígito verificador, control estricto de edad (mínimo 18 años, máximo 100 años), y protección de contraseñas mediante encriptación hash con `bcryptjs` en el servidor.
-3. **Referidos (Clientes B2B) [`proyectos.html`]:**
-   * Formulario y tabla histórica global para la creación de proyectos y derivación de clientes. Este módulo implementa la relación directa Mongoose (`ObjectId`) y es el encargado de consultar las colecciones cruzadas mediante **agregaciones `$lookup` y `$unwind`** para asociar visualmente el nombre y RUT del Partner a cada proyecto.
-4. **Mi Dashboard [`dashboard.html`]:**
-   * Espacio personal interactivo para los Partners, donde se visualiza el detalle específico e histórico de sus propias operaciones referidas, montos de comisión, estado de proyectos y métricas de avance de misiones.
+* **Partners (Directorio) [`index.html`]:**
+  Panel de administración principal que consulta y lista a todos los Partners registrados en el sistema, mostrando sus datos ordenados mediante tablas interactivas de DataTables.
+* **Registro Partner [`formulario.html`]:**
+  Formulario de incorporación con validación avanzada en tiempo real: verificación algorítmica de RUT chileno con dígito verificador, control estricto de edad (mínimo 18 años, máximo 100 años), y protección de contraseñas mediante encriptación hash con `bcryptjs` en el servidor.
+* **Referidos (Clientes B2B) [`proyectos.html`]:**
+  Formulario y tabla histórica global para la creación de proyectos y derivación de clientes. Este módulo implementa la relación directa Mongoose (`ObjectId`) y es el encargado de consultar las colecciones cruzadas mediante agregaciones `$lookup` y `$unwind` para asociar visualmente el nombre y RUT del Partner a cada proyecto.
+* **Mi Dashboard [`dashboard.html`]:**
+  Espacio personal interactivo para los Partners, donde se visualiza el detalle específico e histórico de sus propias operaciones referidas, montos de comisión, estado de proyectos y métricas de avance de misiones.
 
 ---
 
